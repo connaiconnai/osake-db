@@ -1,4 +1,5 @@
 up:
+	docker compose run --rm app sh -c 'npm install'
 	docker compose up
 build:
 	docker compose build
