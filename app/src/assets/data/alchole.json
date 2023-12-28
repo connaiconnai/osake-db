@@ -1,0 +1,23 @@
+[
+  {
+    "alchole_name": "独楽蔵 生もと純米 TAHITO",
+    "genre": "nihonsyu",
+    "image": "",
+    "labels": [
+      {
+        "label": "米",
+        "value": "山田錦"
+      },
+      {
+        "label": "精米歩合",
+        "value": "65%"
+      }
+    ],
+    "reviews": [
+      {
+        "author": "管理者",
+        "content": "香りは生もと由来のミルクキャンディーの様。\n滑らかな米の旨味、伸びのある酸を含む\nバナナを連想"
+      }
+    ]
+  }
+]

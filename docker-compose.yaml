@@ -10,3 +10,4 @@ services:
     command: sh -c "npm run dev"
     ports:
       - 80:5173
+      - 6006:6006
