@@ -1,9 +1,12 @@
-import BrowseRouterProvider from './Router'
+import BrowseRouterProvider from "./Router";
+import MuiThemeProvider from "./MuiTheme";
 
 export default function Provider() {
   return (
     <>
-      <BrowseRouterProvider />
+      <MuiThemeProvider>
+        <BrowseRouterProvider />
+      </MuiThemeProvider>
     </>
-  )
+  );
 }

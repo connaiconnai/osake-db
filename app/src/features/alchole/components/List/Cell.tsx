@@ -1,5 +1,6 @@
 import { Card } from "@ui-parts/index";
 import { getRandomKey } from "@util/variable";
+import Label from "../common/Label";
 import { alcholeType } from "../../type/alchole";
 
 export default function Cell({ data }: { data: alcholeType }) {
@@ -12,10 +13,8 @@ export default function Cell({ data }: { data: alcholeType }) {
           <span className="block">{data.genre}</span>
           <span className="block">
             {data.labels.map((label) => (
-              <span className="flex" key={getRandomKey()}>
-                {label.label}
-                <span>：</span>
-                {label.value}
+              <span key={getRandomKey()}>
+                <Label label={label} />
               </span>
             ))}
           </span>

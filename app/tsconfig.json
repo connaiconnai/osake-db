@@ -30,7 +30,8 @@
       "@features/*": ["src/features/*"],
       "@jsonData/*": ["src/assets/data/*"],
       "@ui-elements/*": ["src/components/ui-elements/*"],
-      "@ui-parts/*": ["src/components/ui-parts/*"]
+      "@ui-parts/*": ["src/components/ui-parts/*"],
+      "@layouts/*": ["src/components/layouts/*"]
     }
   },
   "include": ["src"],

@@ -1,2 +1,4 @@
 import List from "./components/List/index";
-export { List };
+import Detail from "./components/Detail/index";
+
+export { List, Detail };

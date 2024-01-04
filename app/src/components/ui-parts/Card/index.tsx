@@ -8,7 +8,7 @@ export default function CardParts({
 }: CardType) {
   return (
     <Card>
-      <CardMedia sx={{ height: 140 }} image={image} title="" />
+      {image && <CardMedia sx={{ height: 140 }} image={image} title="" />}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {head}
