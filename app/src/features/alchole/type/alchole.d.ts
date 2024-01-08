@@ -2,7 +2,7 @@ export type alcholeType = {
   alchole_uid: string;
   alchole_name: string;
   genre: string;
-  image: string;
+  image?: string;
   labels: labelType[];
   reviews: reviewType[];
 };

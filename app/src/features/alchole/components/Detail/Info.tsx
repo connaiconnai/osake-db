@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Paragraph } from "@ui-elements/index";
 import { getRandomKey } from "@util/variable";
 import { labelType } from "../../type/alchole";
 import Label from "../common/Label";
@@ -14,13 +14,13 @@ export default function Info({
     <>
       <div className="text-xl">{name}</div>
       <div className="mt-4">
-        <Typography color="text.secondary">
+        <Paragraph>
           {labels.map((label) => (
-            <span key={getRandomKey()}>
+            <div key={getRandomKey()}>
               <Label label={label} />
-            </span>
+            </div>
           ))}
-        </Typography>
+        </Paragraph>
       </div>
     </>
   );

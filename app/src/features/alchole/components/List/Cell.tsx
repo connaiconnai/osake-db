@@ -7,6 +7,7 @@ export default function Cell({ data }: { data: alcholeType }) {
   return (
     <Card
       image={data.image}
+      imageHeight={200}
       head={data.alchole_name}
       body={
         <>

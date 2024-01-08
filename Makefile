@@ -1,6 +1,8 @@
 up:
 	docker compose run --rm app sh -c 'npm install'
+	cp ./app/.env.example ./app/.env
 	docker compose up
+
 build:
 	docker compose build
 
@@ -12,6 +14,9 @@ create-project:
 	@make build
 	mkdir -p app
 	docker compose run --rm app sh -c 'npm create vite@latest . -- --template react-ts'
+
+app:
+	docker compose run --rm app sh
 
 install-tailwind:
 	docker compose run --rm app sh -c 'npm install -D tailwindcss postcss autoprefixer'
@@ -37,10 +42,6 @@ install-storybook:
 
 npm-install:
 	docker compose run --rm app sh -c 'npm install'
-
-app:
-	docker compose run --rm app sh
-
 npm-test:
 	docker compose run --rm app sh -c 'npm run test'
 npm-storybook:

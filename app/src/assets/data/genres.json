@@ -1,10 +1,12 @@
 [
   {
     "genre_name": "nihonsyu",
+    "genre_jp_name": "日本酒",
     "genre_id": "1"
   },
   {
     "genre_name": "wine",
+    "genre_jp_name": "ワイン",
     "genre_id": "2"
-  }  
+  }
 ]
