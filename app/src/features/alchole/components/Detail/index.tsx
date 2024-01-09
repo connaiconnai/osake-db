@@ -2,12 +2,11 @@ import { useParams } from "react-router-dom";
 import { Image } from "@ui-elements/index";
 import Reviews from "./Reviews";
 import Info from "./Info";
-import { alcholeType } from "../../type/alchole";
 import { fetchAlcholeData } from "../../helper/index";
 
 export default function Detail() {
   const { uid } = useParams();
-  const data: alcholeType = fetchAlcholeData(uid);
+  const data: any = fetchAlcholeData(uid);
 
   return (
     <>

@@ -5,7 +5,7 @@ import { alcholeType } from "../../type/alchole";
 import { fetchAlcholeData } from "../../helper/index";
 
 export default function List() {
-  const alcholeData: alcholeType[] = fetchAlcholeData();
+  const alcholeData: any = fetchAlcholeData();
 
   return (
     <>
