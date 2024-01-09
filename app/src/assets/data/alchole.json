@@ -4,7 +4,7 @@
     "alchole_name": "独楽蔵 生もと純米 TAHITO",
     "genre_id": "1",
     "genre": "日本酒",
-    "image": "/public/images/tahito.jpg",
+    "image": "/images/tahito.jpg",
     "labels": [
       {
         "label": "杜の蔵",
