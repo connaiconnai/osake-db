@@ -1,0 +1,26 @@
+name: CI
+on:
+  pull_request:
+    branches: [main] #main向けのプルリクが作成されたときにジョブを実行
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "21.x"
+      - run: npm ci #dependencyのインストール
+      - run: npm test -- --coverage
+        env:
+          CI: true
+      - name: Upload Test Coverage
+        uses: actions/upload-artifact@v1 #artifactをアップロードするアクション
+        with:
+          name: code-coverage #ダウンロード時の表示名
+          path: coverage #アップロードするフォルダのパス
