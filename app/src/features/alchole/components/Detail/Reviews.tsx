@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { reviewType } from "@types/alchole";
+import { reviewType } from "@type/alchole";
 import { getRandomKey } from "@util/variable";
 
 export default function Reviews({ reviews }: { reviews: reviewType[] }) {

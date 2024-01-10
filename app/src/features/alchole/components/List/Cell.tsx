@@ -1,7 +1,7 @@
 import { Card } from "@ui-parts/index";
 import { getRandomKey } from "@util/variable";
 import Label from "../common/Label";
-import { alcholeType } from "@types/alchole";
+import { alcholeType } from "@type/alchole";
 
 export default function Cell({ data }: { data: alcholeType }) {
   return (

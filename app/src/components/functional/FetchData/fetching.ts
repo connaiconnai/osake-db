@@ -1,6 +1,11 @@
 const lamda = import.meta.env.VITE_LAMDA_API;
+import { callbackType } from "./callback.d";
 
-export const fetchAlcholeData = async (callback) => {
+type renderChunkType = (
+  value: ReadableStreamReadResult<Uint8Array>
+) => void | PromiseLike<void>;
+
+export const fetchAlcholeData = async (callback: callbackType) => {
   return fetch(lamda, {
     method: "GET",
     headers: {
@@ -17,13 +22,8 @@ export const fetchAlcholeData = async (callback) => {
     .then((reader) => {
       let veryLongText = "";
       const decoder = new TextDecoder();
-      // ReadableStream.read()はPromiseを返す。
-      // Promiseは{ done, value }として解決される。
-      // データを読み込んだとき：doneはfalse, valueは値。
-      // データを読み込み終わったとき：doneはtrue, valueはundefined。
-      const readChunk = ({ done, value }: { done: boolean; value: any }) => {
+      const readChunk: renderChunkType = ({ done, value }) => {
         if (done) {
-          // 読み込みが終わっていれば最終的なテキストを表示する。
           const res = JSON.parse(veryLongText);
           if (res.statusCode == 200) {
             callback(res.body.data);
@@ -35,13 +35,10 @@ export const fetchAlcholeData = async (callback) => {
         }
 
         veryLongText += decoder.decode(value);
-
-        // 次の値を読みにいく。
-        reader.read().then(readChunk);
+        reader?.read().then(readChunk);
       };
 
-      // 最初の値を読み込む。
-      reader.read().then(readChunk);
+      reader?.read().then(readChunk);
     })
     .catch((error) => {
       alert("Error: " + error.message);

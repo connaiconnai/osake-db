@@ -1,6 +1,6 @@
 import { Paragraph } from "@ui-elements/index";
 import { getRandomKey } from "@util/variable";
-import { labelType } from "@types/alchole";
+import { labelType } from "@type/alchole";
 import Label from "../common/Label";
 
 export default function Info({

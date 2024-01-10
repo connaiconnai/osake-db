@@ -1,5 +1,5 @@
 import { UseFetchDataValue } from "@functional/FetchData";
-import { alcholeType } from "@types/alchole";
+import { alcholeType } from "@type/alchole";
 
 export function getAlcholeData() {
   const alcholeData: alcholeType[] = UseFetchDataValue();

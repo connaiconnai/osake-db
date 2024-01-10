@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Image } from "@ui-elements/index";
-import { alcholeType } from "@types/alchole";
+import { alcholeType } from "@type/alchole";
 import Reviews from "./Reviews";
 import Info from "./Info";
 import { filterAlcholeData } from "../../helper/getFetchData";

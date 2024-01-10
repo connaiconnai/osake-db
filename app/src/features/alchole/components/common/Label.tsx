@@ -1,4 +1,4 @@
-import { labelType } from "@types/alchole";
+import { labelType } from "@type/alchole";
 
 export default function Label({ label }: { label: labelType }) {
   return (

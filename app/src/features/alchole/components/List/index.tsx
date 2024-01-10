@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { getRandomKey } from "@util/variable";
-import { alcholeType } from "@types/alchole";
+import { alcholeType } from "@type/alchole";
 import Cell from "./Cell";
 import { getAlcholeData } from "../../helper/getFetchData";
 
