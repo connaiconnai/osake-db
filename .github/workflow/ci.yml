@@ -16,6 +16,11 @@ jobs:
         with:
           node-version: "21.x"
       - run: npm ci #dependencyのインストール
-      - run: npm  test
+      - run: npm test -- --coverage
         env:
-          CI: true #現在の環境がCI環境であることを仮定
+          CI: true
+      - name: Upload Test Coverage
+        uses: actions/upload-artifact@v1 #artifactをアップロードするアクション
+        with:
+          name: code-coverage #ダウンロード時の表示名
+          path: coverage #アップロードするフォルダのパス
