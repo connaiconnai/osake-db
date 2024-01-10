@@ -1,6 +1,6 @@
 import { Paragraph } from "@ui-elements/index";
 import { getRandomKey } from "@util/variable";
-import { labelType } from "../../type/alchole";
+import { labelType } from "@types/alchole";
 import Label from "../common/Label";
 
 export default function Info({
@@ -13,7 +13,7 @@ export default function Info({
   return (
     <>
       <div className="text-xl">{name}</div>
-      <div className="mt-4">
+      <div className="mt-4" data-testid="alchole-label-test">
         <Paragraph>
           {labels.map((label) => (
             <div key={getRandomKey()}>

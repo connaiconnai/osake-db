@@ -9,7 +9,7 @@ export default defineConfig({
   test: {
     environment: "happy-dom",
     setupFiles: "./src/__test__/setup.ts",
-    testMatch: "./src/**/*.test.jsx",
+    testMatch: "./src/**/*.test.{tsx,ts}",
     globals: true,
   },
 });

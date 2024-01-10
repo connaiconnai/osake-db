@@ -28,6 +28,7 @@
       "@routes/*": ["src/routes/*"],
       "@functional/*": ["src/components/functional/*"],
       "@features/*": ["src/features/*"],
+      "@types/*": ["src/types/*"],
       "@jsonData/*": ["src/assets/data/*"],
       "@ui-elements/*": ["src/components/ui-elements/*"],
       "@ui-parts/*": ["src/components/ui-parts/*"],

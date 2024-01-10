@@ -1,14 +1,22 @@
-up:
+setup:
 	docker compose run --rm app sh -c 'npm install'
 	cp ./app/.env.example ./app/.env
+
+up:
+	@make setup
 	docker compose up
 
 build:
 	docker compose build
 
-init:
+dev:
 	@make build
 	@make up
+
+deploy:
+	@make build
+	@make setup
+	@make npm-build
 
 create-project:
 	@make build
@@ -46,3 +54,5 @@ npm-test:
 	docker compose run --rm app sh -c 'npm run test'
 npm-storybook:
 	docker compose run --rm app sh -c 'npm run storybook'
+npm-build:
+	docker compose run --rm app sh -c 'npm run build'

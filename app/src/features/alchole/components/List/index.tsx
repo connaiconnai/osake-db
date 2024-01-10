@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import Cell from "./Cell";
 import { getRandomKey } from "@util/variable";
-import { alcholeType } from "../../type/alchole";
-import { fetchAlcholeData } from "../../helper/index";
+import { alcholeType } from "@types/alchole";
+import Cell from "./Cell";
+import { getAlcholeData } from "../../helper/getFetchData";
 
 export default function List() {
-  const alcholeData: any = fetchAlcholeData();
+  const alcholeData: alcholeType[] = getAlcholeData();
 
   return (
     <>

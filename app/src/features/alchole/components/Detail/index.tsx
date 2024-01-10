@@ -1,12 +1,19 @@
 import { useParams } from "react-router-dom";
 import { Image } from "@ui-elements/index";
+import { alcholeType } from "@types/alchole";
 import Reviews from "./Reviews";
 import Info from "./Info";
-import { fetchAlcholeData } from "../../helper/index";
+import { filterAlcholeData } from "../../helper/getFetchData";
 
 export default function Detail() {
   const { uid } = useParams();
-  const data: any = fetchAlcholeData(uid);
+  const data: alcholeType | undefined = filterAlcholeData(uid);
+  if (!data)
+    return (
+      <>
+        <div className="w-full text-center">not found</div>
+      </>
+    );
 
   return (
     <>
