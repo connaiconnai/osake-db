@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
-import { reviewType } from "@type/alchole";
+import { ReviewType } from "@type/alchole";
 import { getRandomKey } from "@util/variable";
 
-export default function Reviews({ reviews }: { reviews: reviewType[] }) {
+export default function Reviews({ reviews }: { reviews: ReviewType[] }) {
   return (
     <>
       <div className="text-xl">レビュー</div>

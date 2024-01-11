@@ -4,6 +4,7 @@ import {
   InputError,
   TextField as AtomTextField,
 } from "@ui-elements/index";
+import { ReactElement } from "react";
 
 export default function TextField({
   label = "",
@@ -14,7 +15,7 @@ export default function TextField({
   placeholder = "",
   onChange = () => false,
   ...props
-}) {
+}): ReactElement {
   return (
     <Box>
       <InputLabel label={label} htmlFor={name} />

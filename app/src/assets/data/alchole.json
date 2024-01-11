@@ -8,15 +8,15 @@
     "labels": [
       {
         "label": "杜の蔵",
-        "value": "福岡県久留米市"
+        "label_value": "福岡県久留米市"
       },
       {
         "label": "米",
-        "value": "山田錦"
+        "label_value": "山田錦"
       },
       {
         "label": "精米歩合",
-        "value": "65%"
+        "label_value": "65%"
       }
     ],
     "reviews": [

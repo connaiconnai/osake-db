@@ -1,5 +1,5 @@
-import List from "./components/List/index";
-import Detail from "./components/Detail/index";
-import Edit from "./components/Edit/index";
+import List from "./components/List";
+import Detail from "./components/Detail";
+import Edit from "./components/Edit";
 
 export { List, Detail, Edit };
