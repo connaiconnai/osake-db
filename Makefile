@@ -10,6 +10,7 @@ build:
 	docker compose build
 
 dev:
+	mkdir -p app/dist
 	@make build
 	@make up
 
