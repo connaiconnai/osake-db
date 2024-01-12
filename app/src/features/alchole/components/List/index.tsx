@@ -9,7 +9,7 @@ export default function List() {
 
   return (
     <>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 grid-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {alcholeData.map((alchole: AlcholeType) => (
           <div className="col-span-1" key={getRandomKey()}>
             <Link to={"detail/" + alchole.alchole_uid}>
