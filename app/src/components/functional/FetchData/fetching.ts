@@ -9,14 +9,14 @@ export const fetchAlcholeData = async (callback: callbackType) => {
   return fetch(lamda, {
     method: "GET",
     headers: {
-      "Content-Type": "application/pdf",
+      "Content-Type": "application/json",
     },
   })
     .then((response) => {
       if (response.ok) {
         return response.body?.getReader();
       } else {
-        alert("Fail: " + response.status);
+        console.error("Fail: " + response.status);
       }
     })
     .then((reader) => {
@@ -41,6 +41,6 @@ export const fetchAlcholeData = async (callback: callbackType) => {
       reader?.read().then(readChunk);
     })
     .catch((error) => {
-      alert("Error: " + error.message);
+      console.error("Error: " + error.message);
     });
 };
