@@ -1,9 +1,9 @@
 import { Card } from "@ui-parts/index";
 import { getRandomKey } from "@util/variable";
 import Label from "../common/Label";
-import { alcholeType } from "@type/alchole";
+import { AlcholeType } from "@type/alchole";
 
-export default function Cell({ data }: { data: alcholeType }) {
+export default function Cell({ data }: { data: AlcholeType }) {
   return (
     <Card
       image={data.image}

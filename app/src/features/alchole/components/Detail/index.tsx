@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { Image } from "@ui-elements/index";
-import { alcholeType } from "@type/alchole";
+import { AlcholeType } from "@type/alchole";
 import Reviews from "./Reviews";
 import Info from "./Info";
 import { filterAlcholeData } from "../../helper/getFetchData";
 
 export default function Detail() {
   const { uid } = useParams();
-  const data: alcholeType | undefined = filterAlcholeData(uid);
+  const data: AlcholeType | undefined = filterAlcholeData(uid);
   if (!data)
     return (
       <>

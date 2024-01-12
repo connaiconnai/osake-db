@@ -1,1 +1,1 @@
-export type callbackType = (resData: alcholeType) => void;
+export type callbackType = (resData: AlcholeType) => void;

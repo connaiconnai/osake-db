@@ -1,18 +1,19 @@
-export type alcholeType = {
+export type AlcholeType = {
   alchole_uid: string;
   alchole_name: string;
   genre: string;
+  genre_id: string;
   image?: string;
-  labels: labelType[];
-  reviews: reviewType[];
+  labels: LabelType[];
+  reviews: ReviewType[];
 };
 
-export type labelType = {
+export type LabelType = {
   label: string;
-  value: string;
+  label_value: string;
 };
 
-export type reviewType = {
+export type ReviewType = {
   author: string;
   content: string;
 };
