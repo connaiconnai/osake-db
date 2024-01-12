@@ -1,56 +1,97 @@
 import { SubmitHandler } from "react-hook-form";
-import { AlcholeType } from "@type/alchole";
-
-type renderChunkType = (
-  value: ReadableStreamReadResult<Uint8Array>
-) => void | PromiseLike<void>;
+import {
+  AlcholeType,
+  LabelType,
+  ReviewType,
+  AlcholeFormType,
+} from "@type/alchole";
 
 type Inputs = AlcholeType;
-export const onSubmit: SubmitHandler<Inputs> = (data: any) => {
-  const lamda = import.meta.env.VITE_LAMDA_API;
-  return fetch(lamda, {
+export const onSubmit: SubmitHandler<Inputs> = (data: AlcholeFormType) => {
+  const lambda = import.meta.env.VITE_LAMBDA_API;
+  const formData = translatePostData(data);
+  fetch(lambda, {
     method: "POST",
-    body: JSON.stringify({ formData: data }),
+    body: JSON.stringify({ formData }),
     headers: {
       "Content-Type": "application/json",
     },
   })
     .then((response) => {
       if (response.ok) {
-        return response.body?.getReader();
+        return;
       } else {
         console.error("Fail: " + response.status);
       }
     })
-    .then((reader) => {
-      let veryLongText = "";
-      const decoder = new TextDecoder();
-      const readChunk: renderChunkType = ({ done, value }) => {
-        if (done) {
-          const res = JSON.parse(veryLongText);
-          if (res.statusCode == 200) {
-            console.log(res);
-          }
-          if (res.errorMessage) {
-            console.error("Fail: " + res.errorMessage);
-          }
-          return;
-        }
-
-        veryLongText += decoder.decode(value);
-        reader?.read().then(readChunk);
-      };
-
-      reader?.read().then(readChunk);
-    })
-    .catch((error) => {
-      console.error("Error: " + error.message);
+    .catch((e) => {
+      console.error(e);
     });
 };
 
-const translatePostData = (data) => {
-  const label_key = ["label", "label_value"];
-  const label_keys = Object.keys(data).filter((key) => label_key.includes(key));
+const translatePostData = (data: AlcholeFormType) => {
+  const prev_data = { ...data };
+  const translate = (key_set: string[]) => {
+    const keys = getArrayValueKeys(data, key_set[0]);
+    const keys_length = keys.length;
+    deleteArrayValue(prev_data, key_set, keys_length);
+    const push_data = translateArray(data, key_set, keys_length);
+    return push_data;
+  };
+
+  const label_key_set = ["label", "label_value"];
+  const labels = translate(label_key_set);
+
+  const review_key_set = ["author", "content"];
+  const reviews = translate(review_key_set);
+
+  const result = {
+    ...prev_data,
+    labels,
+    reviews,
+  };
+  return result;
+};
+
+const translateArray = (
+  data: AlcholeFormType,
+  key_set: string[],
+  length: number
+) => {
+  const result = [];
+  for (let i = 1; i <= length; i++) {
+    const index_key = i == 1 ? "" : i;
+    let values = {};
+    key_set.map((key: string) => {
+      const push_data = data[(key + index_key) as keyof typeof data];
+      if (push_data) values = { ...values, [key]: push_data };
+    });
+
+    if (Object.keys(values).length) result.push(values);
+  }
+  return result;
+};
+
+const deleteArrayValue = (
+  data: AlcholeFormType,
+  key_set: string[],
+  length: number
+) => {
+  for (let i = 1; i <= length; i++) {
+    const index_key = i == 1 ? "" : i;
+    key_set.map((key: string) => {
+      delete data[(key + index_key) as keyof typeof data];
+    });
+  }
+  return data;
+};
+
+const getArrayValueKeys = (data: AlcholeFormType, array_key: string) => {
+  const pattern = new RegExp("^" + array_key + "\\d*$");
+  const array_value_keys = Object.keys(data)
+    .map((key) => (key.match(pattern) ? key : ""))
+    .filter((v) => v);
+  return array_value_keys;
 };
 
 export const getDefaultValues = (data: AlcholeType | undefined) => {
@@ -68,12 +109,13 @@ export const getDefaultValues = (data: AlcholeType | undefined) => {
   return values;
 };
 
-const getArrayValue = (array: any) => {
+const getArrayValue = (array: LabelType[] | ReviewType[]) => {
   let result = {};
   array.map((item: any, i: number) => {
     Object.keys(item).map((key) => {
       const key_index = i == 0 ? "" : i + 1;
-      result = { ...result, [key + key_index]: item[key] };
+      const value = item[key];
+      result = { ...result, [key + key_index]: value };
     });
   });
   return result;

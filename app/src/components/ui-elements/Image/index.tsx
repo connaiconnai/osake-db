@@ -7,7 +7,7 @@ export default function Image({ src = "" }: imageType) {
 
   return (
     <>
-      <img src={`${host}/${src}`} alt="" />
+      <img src={`${host}${src}`} alt="" />
     </>
   );
 }

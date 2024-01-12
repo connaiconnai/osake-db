@@ -1,4 +1,4 @@
-const lamda = import.meta.env.VITE_LAMDA_API;
+const lambda = import.meta.env.VITE_LAMBDA_API;
 import { callbackType } from "./callback.d";
 
 type renderChunkType = (
@@ -6,7 +6,7 @@ type renderChunkType = (
 ) => void | PromiseLike<void>;
 
 export const fetchAlcholeData = async (callback: callbackType) => {
-  return fetch(lamda, {
+  return fetch(lambda, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

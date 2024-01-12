@@ -12,6 +12,7 @@ build:
 dev:
 	mkdir -p app/dist
 	@make build
+	@make npm-install
 	@make up
 
 deploy:
