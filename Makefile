@@ -57,4 +57,6 @@ npm-test:
 npm-storybook:
 	docker compose run --rm app sh -c 'npm run storybook'
 npm-build:
+	cp ./app/.env.prod ./app/.env
 	docker compose run --rm app sh -c 'npm run build'
+	@make setup

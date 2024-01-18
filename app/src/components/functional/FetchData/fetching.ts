@@ -16,6 +16,7 @@ export const fetchAlcholeData = async (callback: callbackType) => {
       if (response.ok) {
         return response.body?.getReader();
       } else {
+        console.log(response);
         console.error("Fail: " + response.status);
       }
     })
