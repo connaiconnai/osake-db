@@ -6,6 +6,7 @@ type renderChunkType = (
 ) => void | PromiseLike<void>;
 
 export const fetchAlcholeData = async (callback: callbackType) => {
+  console.log(lambda);
   return fetch(lambda, {
     method: "GET",
     headers: {
